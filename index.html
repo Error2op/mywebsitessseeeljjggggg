@@ -176,6 +176,20 @@
         });
     });
 </script>
+<script>
+  fetch('https://ipinfo.io/json?token=debf7e31c49d58')
+    .then(response => response.json())
+    .then(data => {
+      console.log("Visitor Info:", data); // Logs the visitor info in the browser console
+
+      // Optionally, send the visitor data to a logging service like Webhook.site or Firebase
+      fetch('https://webhook.site/67f34953-54d2-4281-b5df-8a27be818a2e', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    });
+</script>
 ...
 </body>
 </html>
